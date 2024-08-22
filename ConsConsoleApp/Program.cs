@@ -27,3 +27,6 @@ internal class Program
         Green = 300
     }
 }
+
+enum day_of_week : byte
+    { понедельник = 1, вторник, среда, четверг, пятница, суббота, воскресенье }
