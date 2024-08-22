@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using System.Xml.Linq;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -11,5 +13,17 @@
         Console.WriteLine("MyAge " + MyAge);
         Console.WriteLine("Do I have a pet? " + HaveIApet);
         Console.WriteLine("My shoe size is " + MyShoeSize);
+        String name = "Jane";
+        Byte age = 27;
+        String favcolor = "black";
+        Console.WriteLine("{0} \n  {1} \n {2}", name, age, favcolor);
+        Console.ReadKey();
+    }
+
+    enum Semaphore : short
+    {
+        Red = 100,
+        Yellow = 200,
+        Green = 300
     }
 }
