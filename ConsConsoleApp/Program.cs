@@ -17,7 +17,7 @@ internal class Program
         Byte age = 27;
         String favcolor = "black";
         Console.WriteLine("{0} \n  {1} \n {2}", name, age, favcolor);
-        Console.ReadKey();
+        Console.ReadLine();
     }
 
     enum Semaphore : short

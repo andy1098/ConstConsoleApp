@@ -1,6 +1,8 @@
-﻿internal class Program
+﻿using System.Drawing;
+
+internal class Program
 {
-    private static void Main(string[] args)
+    static string ReturnColor()
     {
         Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
         var color = Console.ReadLine();
@@ -34,5 +36,18 @@
                 Console.WriteLine("Your color from Hell!");
                 break;
         }
+        return color;
+    }
+    private static void Main(string[] args)
+    {
+        var favcolor = new string[3];
+        for (int i = 0; i < 3; i++)
+            favcolor[i] = ReturnColor();
+
+        Console.Write("Выбранные цвета: ");
+        foreach (var fav in favcolor) 
+            Console.Write(fav + ", ");
+        Console.WriteLine();
+        Console.ReadKey();
     }
 }
