@@ -72,7 +72,7 @@
         Console.Write("Введите фамилию: ");
         var surname = Console.ReadLine();
         Console.Write("Введите возраст пользователя: ");
-        var age = ToInt(1);
+        var age = ToInt();
 
         var petnum = 0;
         Console.Write("У Вас есть домашний питомец (да/нет)? ");
@@ -101,7 +101,7 @@
         if (has_pet)
         { 
             Console.Write("Укажите количество домашних питомцев: ");
-            petnum = ToInt(1);
+            petnum = ToInt();
             petsname = GetArray(petnum, "Укажите имя домашнего питомца ");
         }
         else
@@ -109,7 +109,7 @@
             petsname = new[] { "" };
         }
 
-        Console.Write("Введите количество любимых цветов: ");
+        Console.Write("Введите количество любимых цветов или 0 если отсутствуют: ");
         var numcolors = ToInt(0);
         if (numcolors != 0)
         {
@@ -132,7 +132,7 @@
         }
         return mas;
     }
-    static int ToInt(int min) // Проверка целого положительного числа
+    static int ToInt(int min = 1) // Проверка целого положительного числа
     {
         var petn = Console.ReadLine();
         bool is_int = false;
@@ -141,10 +141,15 @@
         {
             if (!int.TryParse(petn, out num))
             {
-                Console.Write("Некорректное значение, введите целое положительное число: ");
+                Console.Write("Некорректное значение, введите число: ");
                 petn = Console.ReadLine();
             }
-            else if ((num = int.Parse(petn)) < min)
+            else if (((num = int.Parse(petn)) < min) & (min == 0))
+            {
+                Console.Write("Некорректное значение, введите целое положительное число или 0: ");
+                petn = Console.ReadLine();
+            }
+            else if (((num = int.Parse(petn)) < min) & (min > 0))
             {
                 Console.Write("Некорректное значение, введите целое положительное число: ");
                 petn = Console.ReadLine();
